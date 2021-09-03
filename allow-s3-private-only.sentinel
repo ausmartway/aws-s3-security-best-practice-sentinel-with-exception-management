@@ -12,6 +12,8 @@ violatingS3Buckets = filter tfplan.resource_changes as _, rc {
 		(rc.address not in exceptionlist)
 }
 
+
+
 for violatingS3Buckets as address, bucket {
 	print(address + "'s acl is : " + bucket.change.after.acl + ", this is missing or not private.")
 }
